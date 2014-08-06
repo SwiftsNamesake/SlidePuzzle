@@ -15,6 +15,8 @@
 
 
 import tkinter as tk
+
+from tkinter import filedialog
 from PIL.ImageTk import PhotoImage, Image
 from random import randint, choice
 from collections import namedtuple
@@ -91,9 +93,8 @@ def createTile(image, column, row, width, height, isEmpty):
 def createFrame(tile, width, height):
 
 	''' '''
-
+	# TODO: Attach image to frame (?)
 	frame = tk.Label(width=width, height=height, anchor=tk.NW, image=tile[0], bd=5, cursor='hand2')
-	#frame.tile = tile
 	frame.grid(column=tile.pos[0], row=tile.pos[1])
 
 	frameTile = (frame, tile.pos[0], tile.pos[1]) 
@@ -169,7 +170,6 @@ def updateTiles(puzzle : dict, first : tuple, second : tuple):
 def checkVictory(puzzle):
 	''' '''
 	win = all(tile.pos == (nRow, nCol) for nCol, col in enumerate(puzzle['tiles']) for nRow, tile in enumerate(col) )
-	#print('Win:', win)
 	return win
 
 
@@ -177,7 +177,7 @@ def main():
 	''' '''
 	global puzzle
 	#puzzle = createPuzzle('C:/Users/Jonatan/Desktop/Python/resources/euler.jpeg', 5, 5, (400, 400), 'Save Euler')
-	puzzle = createPuzzle(input('Choose a file... '), int(input('How many columns?')), int(input('How many rows?')), (400, 400), 'Save Euler')
+	puzzle = createPuzzle(filedialog.askopenfilename(), int(input('How many columns?')), int(input('How many rows?')), (400, 400), 'Save Euler')
 	puzzle['window'].mainloop()
 
 if __name__ == '__main__':
