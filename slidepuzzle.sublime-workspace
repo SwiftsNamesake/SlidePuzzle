@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"crea",
+				"createTile"
+			],
+			[
 				"Image",
 				"PhotoImage  (class)"
 			],
@@ -42,10 +46,6 @@
 			[
 				"yCol",
 				"yColMin"
-			],
-			[
-				"crea",
-				"createWindow"
 			],
 			[
 				"toWo",
@@ -511,7 +511,7 @@
 			"file": "main.py",
 			"settings":
 			{
-				"buffer_size": 843,
+				"buffer_size": 2551,
 				"line_ending": "Windows",
 				"name": "main.py"
 			}
@@ -520,12 +520,16 @@
 	"build_system": "Packages/User/PythonPrompt.sublime-build",
 	"command_palette":
 	{
-		"height": 82.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
+				"co",
+				"Git: Commit"
+			],
+			[
 				"add",
-				"Project: Add Folder"
+				"Git: Add..."
 			],
 			[
 				"imr",
@@ -578,10 +582,6 @@
 			[
 				"cl",
 				"Project: Close"
-			],
-			[
-				"co",
-				"Git: Commit"
 			],
 			[
 				"ke",
@@ -1000,7 +1000,7 @@
 				"View: Toggle Open Files in Side Bar"
 			]
 		],
-		"width": 400.0
+		"width": 536.0
 	},
 	"console":
 	{
@@ -1195,6 +1195,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"print",
+			"4",
+			"-1",
+			"30",
+			"20",
+			"200",
+			"Label(",
+			"width",
+			"		",
+			"\\",
+			"puzzle",
 			"repeat",
 			"rgba(255, 255, 0,",
 			"rgba(100, 150, 20,",
@@ -1311,18 +1322,7 @@
 			"fn",
 			"fname",
 			"2",
-			"600",
-			"650",
-			"400",
-			"validguess",
-			"createme",
-			"400",
-			"650",
-			"400",
-			"650",
-			"createWindow",
-			"400",
-			"650"
+			"600"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1367,15 +1367,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 843,
+						"buffer_size": 2551,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								754,
-								754
+								2034,
+								2034
 							]
 						],
 						"settings":
@@ -1488,7 +1488,7 @@
 							"syntax": "Packages/Python Improved/PythonImproved.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 300.0,
+						"translation.y": 1260.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1583,6 +1583,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"swi",
+				"C:\\Users\\Jonatan\\Desktop\\Python\\modules\\SwiftUtils\\SwiftUtils.sublime-project"
+			],
 			[
 				"Swi",
 				"C:\\Users\\Jonatan\\Desktop\\Python\\modules\\SwiftUtils\\SwiftUtils.sublime-project"
