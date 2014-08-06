@@ -176,7 +176,8 @@ def checkVictory(puzzle):
 def main():
 	''' '''
 	global puzzle
-	puzzle = createPuzzle('C:/Users/Jonatan/Desktop/Python/resources/euler.jpeg', 5, 5, (400, 400), 'Save Euler')
+	#puzzle = createPuzzle('C:/Users/Jonatan/Desktop/Python/resources/euler.jpeg', 5, 5, (400, 400), 'Save Euler')
+	puzzle = createPuzzle(input('Choose a file... '), int(input('How many columns?')), int(input('How many rows?')), (400, 400), 'Save Euler')
 	puzzle['window'].mainloop()
 
 if __name__ == '__main__':
