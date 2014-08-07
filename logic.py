@@ -7,7 +7,7 @@
 
 
 # TODO | - Grid utility
-#		 -
+#		 - Clarify Tile nomenclature (position tile and logical tile)
 
 
 # SPEC | - 
@@ -30,8 +30,8 @@ def createPuzzle(columns : int, rows : int) -> Puzzle:
 
 def randomPair(puzzle : Puzzle) -> Tile:
 	''' Selects a random pair of tiles '''
-	fst = randint(0, puzzle.cols-1), randint(0, puzzle.rows)-1) # Column and row of first tile
-	snd = randint(0, puzzle.cols-1), randint(0, puzzle.rows)-1) # Column and row of second tile
+	fst = randint(0, puzzle.cols-1), randint(0, puzzle.rows-1) # Column and row of first tile
+	snd = randint(0, puzzle.cols-1), randint(0, puzzle.rows-1) # Column and row of second tile
 	return Tile(*fst), Tile(*snd)
 
 
@@ -49,9 +49,20 @@ def chooseRow(puzzle : Puzzle, row : int):
 
 
 def loopTiles(puzzle : Puzzle):
+	''' Iterates all tiles, yielding its current and proper position as a tuple of Tiles '''
 	for nCol, column in enumerate(puzzle.tiles):
 		for nRow, tile in enumerate(column):
 			yield Tile(nCol, nRow), tile
+
+
+def loopAdjacent(puzzle, tile):
+	''' Iterates adjacent tiles '''
+	for c, r in ((0,1), (0,-1), (1,0), (-1,0)):
+		adjacent = Tile(c+tile.col, r+tile.row)
+		if withinBounds(puzzle, adjacent):
+			yield adjacent
+		else:
+			continue
 
 
 def swapTiles(puzzle : Puzzle, first : Tile, second : Tile) -> Puzzle:
@@ -63,17 +74,23 @@ def swapTiles(puzzle : Puzzle, first : Tile, second : Tile) -> Puzzle:
 
 
 def isEmpty(puzzle : Puzzle, tile : Tile) -> bool:
+	''' Determines if the tile at the specified position is empty '''
 	return chooseTile(puzzle, tile) == puzzle.empty
 
 
 # TODO: Allow callbacks (?)
 def scramblePuzzle(puzzle : Puzzle) -> Puzzle:
-	print('Cols: ', puzzle.cols, '\nRows: ', puzzle.rows)
+	''' Scrambles the puzzle by making a series of random moves '''
+	# TODO: Make sure this never results in impossible puzzles
+	# TODO: Specify degree of randomness
+	# Python findIf (?)
+	empty = [pos for pos, tile in loopTiles(puzzle) if isEmpty(puzzle, pos)][0]
+
 	for n in range(puzzle.cols*puzzle.rows):
-		fst, snd = randomPair(puzzle)
-		print(fst,snd)
-		if fst == snd: continue
-		swapTiles(puzzle, fst, snd)
+		#fst, snd = randomPair(puzzle)
+		adjacent = choice([adj for adj in loopAdjacent(puzzle, empty)])
+		swapTiles(puzzle, empty, adjacent)
+		empty = adjacent
 	return puzzle
 
 

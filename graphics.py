@@ -9,6 +9,7 @@
 # TODO | - Grid utility
 #		 - Better names, consistent nomenclature
 #		 - Use tiles (?)
+#		 - Number overlay hint
 
 
 # SPEC | - 
@@ -77,6 +78,10 @@ def swapFrames(renderer, first, second):
 	sndTile = renderer.puzzle.tiles[second.col][second.row]
 	renderer.frames[first.col][first.row].label.config(image=renderer.pictures[fstTile.col][fstTile.row])
 	renderer.frames[second.col][second.row].label.config(image=renderer.pictures[sndTile.col][sndTile.row])
+
+
+#def updateTiles(renderer):
+#	pass
 
 
 # TODO: Graphics module should probably not implement event handlers...

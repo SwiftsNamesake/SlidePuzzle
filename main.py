@@ -189,13 +189,15 @@ def main():
 def refactored():
 	#settings = interaction.askSettings()
 	#namedtuple('Settings', 'image size cols rows')
-	settings = interaction.Settings('C:/Users/Jonatan/Pictures/Kamera/2013-03-08 16.29.10.jpg', 400, 3, 5)
+	settings = interaction.Settings('C:/Users/Jonatan/Pictures/bild.JPG', 400, 4, 4)
 	image 	 = interaction.resizeImage(settings.image, settings.size)
 	window 	 = tk.Tk()
+	window.title('Solve the Puzzle')
+	window.resizable(width=False, height=False)
 	puzzle 	 = logic.createPuzzle(settings.cols, settings.rows)
 	logic.scramblePuzzle(puzzle)
 	renderer = graphics.createRenderer(window, puzzle, image)
-	for frame in graphicsloopFrames(renderer):
+	for frame in graphics.loopFrames(renderer):
 		graphics.bindEvents(frame, renderer)
 	window.mainloop()
 
