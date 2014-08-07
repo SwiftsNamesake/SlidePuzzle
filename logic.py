@@ -65,6 +65,10 @@ def loopAdjacent(puzzle, tile):
 			continue
 
 
+#def findEmpty(puzzle):
+#	pass
+
+
 def swapTiles(puzzle : Puzzle, first : Tile, second : Tile) -> Puzzle:
 	''' Swaps two tiles (in-place) in a puzzle '''
 	fstTile = chooseTile(puzzle, first)
@@ -81,11 +85,15 @@ def isEmpty(puzzle : Puzzle, tile : Tile) -> bool:
 # TODO: Allow callbacks (?)
 def scramblePuzzle(puzzle : Puzzle) -> Puzzle:
 	''' Scrambles the puzzle by making a series of random moves '''
-	# TODO: Make sure this never results in impossible puzzles
+	# TODO: Make sure this never results in impossible puzzles (✓)
+	# TODO: 
 	# TODO: Specify degree of randomness
 	# Python findIf (?)
 	empty = [pos for pos, tile in loopTiles(puzzle) if isEmpty(puzzle, pos)][0]
 
+	# Swaps empty tile with one of its adjacents for as many times as there are tiles
+	# This algorithm is not ideal and sometimes produces very orderly puzzles
+	# A simple solution would be to increase the number of iterations
 	for n in range(puzzle.cols*puzzle.rows):
 		#fst, snd = randomPair(puzzle)
 		adjacent = choice([adj for adj in loopAdjacent(puzzle, empty)])

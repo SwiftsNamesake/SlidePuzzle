@@ -187,9 +187,8 @@ def main():
 
 
 def refactored():
-	#settings = interaction.askSettings()
-	#namedtuple('Settings', 'image size cols rows')
-	settings = interaction.Settings('C:/Users/Jonatan/Pictures/bild.JPG', 400, 4, 4)
+	# settings = interaction.Settings('C:/Users/Jonatan/Pictures/bild.JPG', 400, 4, 4)
+	settings = interaction.askSettings()
 	image 	 = interaction.resizeImage(settings.image, settings.size)
 	window 	 = tk.Tk()
 	window.title('Solve the Puzzle')
