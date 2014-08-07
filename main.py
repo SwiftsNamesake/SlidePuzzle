@@ -22,6 +22,11 @@ from random import randint, choice
 from collections import namedtuple
 
 
+import logic
+import graphics
+import interaction
+
+
 tile = namedtuple('tile', 'tkPhoto pos photo isEmpty') # TODO: Separate row and col (?)
 puzzle = {}
 
@@ -180,5 +185,24 @@ def main():
 	puzzle = createPuzzle(filedialog.askopenfilename(), int(input('How many columns?')), int(input('How many rows?')), (400, 400), 'Save Euler')
 	puzzle['window'].mainloop()
 
+
+def refactored():
+	#settings = interaction.askSettings()
+	#namedtuple('Settings', 'image size cols rows')
+	settings = interaction.Settings('C:/Users/Jonatan/Pictures/Kamera/2013-03-08 16.29.10.jpg', 400, 3, 5)
+	image 	 = interaction.resizeImage(settings.image, settings.size)
+	window 	 = tk.Tk()
+	puzzle 	 = logic.createPuzzle(settings.cols, settings.rows)
+	logic.scramblePuzzle(puzzle)
+	renderer = graphics.createRenderer(window, puzzle, image)
+	for frame in graphicsloopFrames(renderer):
+		graphics.bindEvents(frame, renderer)
+	window.mainloop()
+
+
 if __name__ == '__main__':
-	main()
+	modular = True
+	if modular:
+		refactored()
+	else:
+		main()

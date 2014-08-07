@@ -66,8 +66,7 @@ def loopImages(renderer):
 
 
 # Renderer
-def createRenderer(window, puzzle, fn) -> Renderer:
-	image = Image.open(fn)
+def createRenderer(window, puzzle, image) -> Renderer:
 	pictures = createImageGrid(image, image.size[0]//puzzle.cols, image.size[1]//puzzle.rows, puzzle.cols, puzzle.rows, puzzle.empty)
 	return Renderer(createFrameGrid(puzzle.tiles, pictures), pictures, image, puzzle, puzzle.cols, puzzle.rows, puzzle.empty)
 
@@ -80,6 +79,7 @@ def swapFrames(renderer, first, second):
 	renderer.frames[second.col][second.row].label.config(image=renderer.pictures[sndTile.col][sndTile.row])
 
 
+# TODO: Graphics module should probably not implement event handlers...
 def bindEvents(frame, renderer):
 	
 	def onClick(event):
@@ -96,7 +96,7 @@ def main():
 	window = tk.Tk()
 	puzzle = logic.createPuzzle(5, 5)
 	logic.scramblePuzzle(puzzle)
-	renderer = createRenderer(window, puzzle, 'C:/Users/Jonatan/Pictures/2013-10-27/IMG_0017.JPG')
+	renderer = createRenderer(window, puzzle, Image.open('C:/Users/Jonatan/Pictures/2013-10-27/IMG_0017.JPG'))
 	for frame in loopFrames(renderer):
 		bindEvents(frame, renderer)
 	window.mainloop()
