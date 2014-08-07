@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"createFra",
+				"createFrameGrid"
+			],
+			[
+				"choos",
+				"chooseRow"
+			],
+			[
 				"bin",
 				"bindEvents"
 			],
@@ -511,7 +519,7 @@
 			"file": "main.py",
 			"settings":
 			{
-				"buffer_size": 4779,
+				"buffer_size": 4806,
 				"line_ending": "Windows",
 				"name": "main.py"
 			}
@@ -520,7 +528,7 @@
 			"file": "logic.py",
 			"settings":
 			{
-				"buffer_size": 1285,
+				"buffer_size": 2847,
 				"line_ending": "Windows",
 				"name": "logic"
 			}
@@ -529,7 +537,7 @@
 			"file": "graphics.py",
 			"settings":
 			{
-				"buffer_size": 124,
+				"buffer_size": 2938,
 				"line_ending": "Windows",
 				"name": "graphics.py"
 			}
@@ -538,9 +546,13 @@
 	"build_system": "Packages/User/PythonPrompt.sublime-build",
 	"command_palette":
 	{
-		"height": 174.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"im",
+				"Set Syntax: PythonImproved"
+			],
 			[
 				"imr",
 				"Set Syntax: PythonImproved"
@@ -584,10 +596,6 @@
 			[
 				"re",
 				"Indentation: Reindent Lines"
-			],
-			[
-				"im",
-				"Set Syntax: PythonImproved"
 			],
 			[
 				"clo",
@@ -1067,6 +1075,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Jonatan/Desktop/Python/projects/SlidePuzzle/magicnumber.py",
 		"/C/Users/Jonatan/Desktop/Python/projects/SlidePuzzle/LICENSE.md",
 		"/C/Users/Jonatan/Desktop/Python/projects/SlidePuzzle/README.md",
 		"/C/Users/Jonatan/Desktop/Haskell/Haskell.hs",
@@ -1193,8 +1202,7 @@
 		"/C/Users/Jonatan/Desktop/Haskell/HelloGUI.hs",
 		"/C/Users/Jonatan/Desktop/Haskell/Classy Haskell.hs",
 		"/C/Users/Jonatan/AppData/Roaming/cabal/base-unicode-symbols-0.2.2.4/ghc-7.6.3/Prelude/Unicode.hi",
-		"/C/Users/Jonatan/AppData/Roaming/cabal/config",
-		"/C/Users/Jonatan/AppData/Roaming/ghc/i386-mingw32-7.6.3/package.conf.d/yaml-0.8.5.2-ad1e3733e70facbc7bbf59925cb170e8.conf"
+		"/C/Users/Jonatan/AppData/Roaming/cabal/config"
 	],
 	"find":
 	{
@@ -1213,6 +1221,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"print",
+			"frame.col",
+			".col",
+			".empty",
+			"first",
+			"tile",
+			"first",
+			"\\",
+			"empty",
+			"in puzzle",
+			"tile",
+			"Row",
+			"col",
+			"row",
 			"(",
 			"first",
 			"tuple",
@@ -1326,26 +1348,12 @@
 			"Min",
 			"real",
 			".coords\\(ball",
-			".coords(ball",
-			".coords\\(ball",
-			".coords(ball",
-			"create_",
-			"0+0j",
-			"state.W",
-			"a",
-			"**",
-			"___",
-			"__",
-			"''",
-			"print",
-			"real",
-			".real",
-			"toWorld"
+			".coords(ball"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
 			"check",
@@ -1385,15 +1393,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4779,
+						"buffer_size": 4806,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								120,
-								0
+								1706,
+								1706
 							]
 						],
 						"settings":
@@ -1507,7 +1515,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1380.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -1519,15 +1527,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1285,
+						"buffer_size": 2847,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								858,
-								858
+								848,
+								848
 							]
 						],
 						"settings":
@@ -1640,7 +1648,7 @@
 							"syntax": "Packages/Python Improved/PythonImproved.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 420.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1652,15 +1660,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 124,
+						"buffer_size": 2938,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								27,
-								27
+								1457,
+								1457
 							]
 						],
 						"settings":
@@ -1770,10 +1778,10 @@
 							},
 							"codeintel_tooltips": "popup",
 							"sublime_auto_complete": true,
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python Improved/PythonImproved.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1380.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
