@@ -25,7 +25,7 @@ Settings = namedtuple('Settings', 'image size cols rows')
 
 
 def askUntil(condition : 'function', query : str, followup : 'function') -> str:
-	''' Asks for input until condition is met. Allows tailored responses by passing response into followup callback '''
+	''' Asks for input until condition is met. Allows tailored responses by passing reply into followup callback '''
 	# TODO: Added number of times asked as argument to callback
 	# TODO: Allow break-out conditions
 	reply = input(query)
