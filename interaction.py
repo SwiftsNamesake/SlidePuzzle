@@ -28,6 +28,7 @@ def askUntil(condition : 'function', query : str, followup : 'function') -> str:
 	''' Asks for input until condition is met. Allows tailored responses by passing reply into followup callback '''
 	# TODO: Added number of times asked as argument to callback
 	# TODO: Allow break-out conditions
+	# TODO: Add another callback for normalizing input (?)
 	reply = input(query)
 	while not condition(reply):
 		reply = input(followup(reply))
