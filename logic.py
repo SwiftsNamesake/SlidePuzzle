@@ -86,7 +86,6 @@ def isEmpty(puzzle : Puzzle, tile : Tile) -> bool:
 def scramblePuzzle(puzzle : Puzzle) -> Puzzle:
 	''' Scrambles the puzzle by making a series of random moves '''
 	# TODO: Make sure this never results in impossible puzzles (✓)
-	# TODO: 
 	# TODO: Specify degree of randomness
 	# Python findIf (?)
 	empty = [pos for pos, tile in loopTiles(puzzle) if isEmpty(puzzle, pos)][0]
@@ -94,7 +93,7 @@ def scramblePuzzle(puzzle : Puzzle) -> Puzzle:
 	# Swaps empty tile with one of its adjacents for as many times as there are tiles
 	# This algorithm is not ideal and sometimes produces very orderly puzzles
 	# A simple solution would be to increase the number of iterations
-	for n in range(puzzle.cols*puzzle.rows):
+	for n in range(puzzle.cols*puzzle.rows*20):
 		#fst, snd = randomPair(puzzle)
 		adjacent = choice([adj for adj in loopAdjacent(puzzle, empty)])
 		swapTiles(puzzle, empty, adjacent)
@@ -109,9 +108,8 @@ def withinBounds(puzzle : Puzzle, tile : Tile) -> bool:
 def move(puzzle : Puzzle, tile : Tile) -> '(didMove, tile, didWin)':
 	''' Attempts to move the chosen tile, returns the outcome '''
 	# TODO: Additional information (eg. reason for not moving) (✓)
-	for c, r in ((0,1), (0,-1), (1,0), (-1,0)):
-		adjacent = Tile(c+tile.col, r+tile.row)
-		if withinBounds(puzzle, adjacent) and isEmpty(puzzle, adjacent):
+	for adjacent in loopAdjacent(puzzle, tile):
+		if isEmpty(puzzle, adjacent):
 			swapTiles(puzzle, tile, adjacent)
 			return True, adjacent, checkVictory(puzzle)
 	return False, None, False

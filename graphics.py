@@ -53,6 +53,14 @@ def createFrameGrid(tiles, pictures):
 	return [[createFrame(nCol, nRow, pictures[tile.col][tile.row]) for nRow, tile in enumerate(column)] for nCol, column in enumerate(tiles)]
 
 
+def swapFrames(renderer, first, second):
+	''' Updates frames after two tiles have been swapped '''
+	fstTile = renderer.puzzle.tiles[first.col][first.row]
+	sndTile = renderer.puzzle.tiles[second.col][second.row]
+	renderer.frames[first.col][first.row].label.config(image=renderer.pictures[fstTile.col][fstTile.row])
+	renderer.frames[second.col][second.row].label.config(image=renderer.pictures[sndTile.col][sndTile.row])
+
+
 # Queries
 def loopFrames(renderer):
 	for column in renderer.frames:
@@ -72,29 +80,25 @@ def createRenderer(window, puzzle, image) -> Renderer:
 	return Renderer(createFrameGrid(puzzle.tiles, pictures), pictures, image, puzzle, puzzle.cols, puzzle.rows, puzzle.empty)
 
 
-def swapFrames(renderer, first, second):
-	''' Updates frames after two tiles have been swapped '''
-	fstTile = renderer.puzzle.tiles[first.col][first.row]
-	sndTile = renderer.puzzle.tiles[second.col][second.row]
-	renderer.frames[first.col][first.row].label.config(image=renderer.pictures[fstTile.col][fstTile.row])
-	renderer.frames[second.col][second.row].label.config(image=renderer.pictures[sndTile.col][sndTile.row])
-
-
-#def updateTiles(renderer):
-#	pass
-
-
 # TODO: Graphics module should probably not implement event handlers...
-def bindEvents(frame, renderer):
-	
+def bindFrameEvents(renderer, frame):
+	''' Binds event handlers to a single frame label '''
+	# TODO: Work out coupling between graphics and interaction modules
 	def onClick(event):
 		moved, tile, victory = logic.move(renderer.puzzle, frame.tile)
 		if moved:
 			swapFrames(renderer, tile, frame.tile)
 		if victory:
+			# TODO: Allow several rounds, give proper feedback (through GUI)
 			print('Hurray!')
 
 	frame.label.bind('<Button-1>', onClick)
+
+
+def bindEvents(renderer):
+	''' '''
+	for frame in loopFrames(renderer):
+		bindFrameEvents(renderer, frame)
 
 
 def main():
@@ -102,8 +106,7 @@ def main():
 	puzzle = logic.createPuzzle(5, 5)
 	logic.scramblePuzzle(puzzle)
 	renderer = createRenderer(window, puzzle, Image.open('C:/Users/Jonatan/Pictures/2013-10-27/IMG_0017.JPG'))
-	for frame in loopFrames(renderer):
-		bindEvents(frame, renderer)
+	bindEvents(renderer)
 	window.mainloop()
 
 

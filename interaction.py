@@ -72,7 +72,7 @@ def askImage(supported=['png', 'jpg', 'jpeg', 'gif', 'bmp']):
 
 def askSize():
 	''' '''
-	# TODO: Adapts to screen, etc.
+	# TODO: Adapt to screen, etc.
 	mini, maxi 	 = (100, 500) # Valid range for size
 	cond, follow = makeSizeCallbacks(mini, maxi)
 	query = 'Scale the image? Put down the maximum (pixels) or reply no to skip... '

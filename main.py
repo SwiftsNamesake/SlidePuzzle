@@ -20,16 +20,15 @@ import interaction
 
 
 def main():
-	# settings = interaction.Settings('C:/Users/Jonatan/Pictures/bild.JPG', 400, 4, 4)
-	settings = interaction.askSettings()
-	image 	 = interaction.resizeImage(settings.image, settings.size)
-	window 	 = interaction.createWindow()
-	puzzle 	 = logic.createPuzzle(settings.cols, settings.rows)
-	logic.scramblePuzzle(puzzle)
-	renderer = graphics.createRenderer(window, puzzle, image)
-	for frame in graphics.loopFrames(renderer):
-		graphics.bindEvents(frame, renderer)
-	window.mainloop()
+	# settings = interaction.Settings('C:/Users/Jonatan/Pictures/2013-10-27/IMG_0017.JPG', 400, 4, 4)
+	settings = interaction.askSettings()								# Prompt user for settings (console)
+	image 	 = interaction.resizeImage(settings.image, settings.size)	# Resize window based on settings, if necessary
+	window 	 = interaction.createWindow()								# Create and configure window
+	puzzle 	 = logic.createPuzzle(settings.cols, settings.rows)			# Create a new puzzle, with the desired settings
+	logic.scramblePuzzle(puzzle)										# Scramble it
+	renderer = graphics.createRenderer(window, puzzle, image)			# Renders puzzle tiles with the selected image
+	graphics.bindEvents(renderer)										# Attach click event handlers
+	window.mainloop()													# Enter main loop (start the game)
 
 
 if __name__ == '__main__':
